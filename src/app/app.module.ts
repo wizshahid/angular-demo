@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { TodoListComponent } from './pages/todo-list/todo-list.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { BooksComponent } from './pages/books/books.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     TodoListComponent,
     NavbarComponent,
     PageNotFoundComponent,
+    BooksComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
