@@ -9,6 +9,8 @@ import { TodoListComponent } from './pages/todo-list/todo-list.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { BooksComponent } from './pages/books/books.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddBookComponent } from './pages/add-book/add-book.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +20,14 @@ import { BooksComponent } from './pages/books/books.component';
     NavbarComponent,
     PageNotFoundComponent,
     BooksComponent,
+    AddBookComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
