@@ -8,9 +8,17 @@ import { BookModel } from '../models/book.model';
 })
 export class BookService {
   constructor(private httpClient: HttpClient) {}
-  baseUrl = 'https://localhost:7042/books';
+  private baseUrl = 'https://localhost:7042/books';
 
   getBooks = (): Observable<BookModel[]> => {
     return this.httpClient.get<BookModel[]>(this.baseUrl);
+  };
+
+  addBook = (book: BookModel): Observable<BookModel> => {
+    return this.httpClient.post<BookModel>(this.baseUrl, book);
+  };
+
+  deleteBook = (id: string): Observable<any> => {
+    return this.httpClient.delete(this.baseUrl + '/' + id);
   };
 }

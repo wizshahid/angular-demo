@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { BookService } from 'src/app/services/book.service';
 
 @Component({
   selector: 'app-add-book',
@@ -7,7 +9,11 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./add-book.component.css'],
 })
 export class AddBookComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private bookService: BookService,
+    private router: Router
+  ) {}
 
   bookForm = this.formBuilder.group({
     bookName: ['', Validators.required],
@@ -20,7 +26,9 @@ export class AddBookComponent implements OnInit {
 
   addBook() {
     if (this.bookForm.valid) {
-      console.log(this.bookForm.value);
+      this.bookService.addBook(this.bookForm.value).subscribe((data) => {
+        this.router.navigate(['/books/list']);
+      });
     } else {
       alert('Invalid');
     }
