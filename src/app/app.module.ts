@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { BooksComponent } from './pages/books/books.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddBookComponent } from './pages/add-book/add-book.component';
+import { EditBookComponent } from './pages/edit-book/edit-book.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AddBookComponent } from './pages/add-book/add-book.component';
     PageNotFoundComponent,
     BooksComponent,
     AddBookComponent,
+    EditBookComponent,
   ],
   imports: [
     BrowserModule,
