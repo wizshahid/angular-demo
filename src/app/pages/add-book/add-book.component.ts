@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BookService } from 'src/app/services/book.service';
 
@@ -16,11 +16,26 @@ export class AddBookComponent implements OnInit {
   ) {}
 
   bookForm = this.formBuilder.group({
-    bookName: ['', Validators.required],
+    bookName: [
+      '',
+      Validators.compose([Validators.required, Validators.minLength(5)]),
+    ],
     category: ['', Validators.required],
     author: ['', Validators.required],
     price: ['', Validators.required],
   });
+
+  get bookNameControl() {
+    return this.bookForm.controls['bookName'];
+  }
+
+  get categoryControl() {
+    return this.bookForm.controls['category'];
+  }
+
+  get authorControl() {
+    return this.bookForm.controls['author'];
+  }
 
   ngOnInit(): void {}
 

@@ -7,6 +7,26 @@
       class="form-control"
       id="bookName"
     />
+    <span
+      class="text-danger"
+      *ngIf="bookNameControl.invalid && bookNameControl.touched"
+    >
+      <p
+        *ngIf="
+          bookNameControl.errors != null && bookNameControl.errors['required']
+        "
+      >
+        Name is required
+      </p>
+
+      <p
+        *ngIf="
+          bookNameControl.errors != null && bookNameControl.errors['minlength']
+        "
+      >
+        Name should be more than 5 characters
+      </p>
+    </span>
   </div>
   <div class="mb-3">
     <label for="category" class="form-label">Category</label>
@@ -16,6 +36,11 @@
       formControlName="category"
       id="category"
     />
+    <span
+      *ngIf="categoryControl.invalid && categoryControl.touched"
+      class="text-danger"
+      >Category is required</span
+    >
   </div>
   <div class="mb-3">
     <label for="price" class="form-label">Price</label>
@@ -34,6 +59,13 @@
       formControlName="author"
       id="author"
     />
+
+    <span
+      class="text-danger"
+      *ngIf="authorControl.invalid && authorControl.touched"
+    >
+      Author is required
+    </span>
   </div>
   <button type="submit" [disabled]="!bookForm.valid" class="btn btn-primary">
     Submit

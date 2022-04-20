@@ -1,0 +1,28 @@
+<form action="">
+  <div>
+    <label for="">Name</label>
+    <input
+      type="text"
+      name="bookName"
+      required
+      #name
+      [(ngModel)]="book.bookName"
+    />
+    <span class="text-danger" *ngIf="name.classList.contains('ng-invalid')"
+      >name is required</span
+    >
+  </div>
+  <div>
+    <label for="">Category</label>
+    <input type="text" name="category" [(ngModel)]="book.category" />
+  </div>
+  <div>
+    <label for="">Author</label>
+    <input type="text" name="author" [(ngModel)]="book.author" />
+  </div>
+  <div>
+    <label for="">Price</label>
+    <input type="number" name="price" [(ngModel)]="book.price" />
+  </div>
+  <div><button>Submit</button></div>
+</form>
